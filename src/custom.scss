@@ -1,0 +1,18 @@
+$danger: #F9C6B7;
+$--bs-body-font-family: 'Noto Sans KR', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,900&family=Noto+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,900&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Optional
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+
+@import "../node_modules/bootstrap/scss/grid";
+
+
