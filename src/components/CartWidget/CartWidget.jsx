@@ -1,4 +1,4 @@
-import decorariLogo from '../components/assets/decorariLogo.png';
+import decorariLogo from '../assets/decorariLogo.png';
 
 
 function CartWidget() {
@@ -9,4 +9,4 @@ function CartWidget() {
   )
 }
 
-export default CartWidget
+export default CartWidget 
