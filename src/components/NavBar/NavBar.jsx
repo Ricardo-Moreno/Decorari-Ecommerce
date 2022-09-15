@@ -1,35 +1,60 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWidget from '../CartWidget/CartWidget';
+import React, {useState} from "react";
+import { Container, LogoContainer, Menu, MenuItem, MenuItemLink, MobileIcon, Wrapper, CarShoppin } from "./NavBar.elements";
 import '../NavBar/NavBar.scss';
+import CartWidget from '../CartWidget/CartWidget';
+import {IconContext} from 'react-icons';
+import { FaBars, FaAddressBook, FaShoppingCart, FaPalette, FaLayerGroup, FaHome, FaTimes } from 'react-icons/fa';
 
 
 
 function NavBar() {
+    const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+
   return (
-    <>
-       <Navbar bg="danger" variant="blue">
-        <Container>
-          <Navbar.Brand href="#home">
-            <CartWidget/>
-             </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Inicio</Nav.Link>
-            <Nav.Link href="#features">Contactos</Nav.Link>
-            <Nav.Link href="#pricing">Categorias</Nav.Link>
-            <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action1">Arreglos</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action2">Decoraciones</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action3">Vnilos</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Container>
-      </Navbar>
-      </>
+    <Container>
+      <Wrapper>
+          <IconContext.Provider value={{style: {fontSize: '2em'}}}>
+        <LogoContainer>
+          <CartWidget/>
+        </LogoContainer>
+            <MobileIcon onClick={()=> setShowMobileMenu(!showMobileMenu)}>
+          {showMobileMenu ? <FaTimes /> : <FaBars/>}
+        </MobileIcon>
+        <Menu open={showMobileMenu}>
+          <MenuItem>
+          <MenuItemLink onClick={()=> setShowMobileMenu(!showMobileMenu)}>
+          <div>
+            <FaHome/>
+            Home
+          </div>
+          </MenuItemLink>
+          <MenuItemLink onClick={()=> setShowMobileMenu(!showMobileMenu)}>
+          <div>
+            <FaPalette/>
+            Decoraciones
+          </div>
+          </MenuItemLink>
+          <MenuItemLink onClick={()=> setShowMobileMenu(!showMobileMenu)}>
+          <div>
+            <FaLayerGroup/>
+            Catalogo
+          </div>
+          </MenuItemLink>
+          <MenuItemLink onClick={()=> setShowMobileMenu(!showMobileMenu)}>
+          <div>
+            <FaAddressBook/>
+            Contactanos
+          </div>
+          </MenuItemLink>
+          </MenuItem>
+        </Menu>
+        <CarShoppin>
+            <FaShoppingCart/>
+          </CarShoppin>
+        </IconContext.Provider>
+      </Wrapper>
+    </Container>
   )
 }
 
