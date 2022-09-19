@@ -1,10 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Card.scss';
 import PropTypes from 'prop-types'
 
 
-function Card({title, imageSource, text}) {
-  return (
+
+function Card({title, imageSource, text, initial, stock}) {
+
+  const [ count, setCount]= useState(initial)
+
+const contador = () => {
+  if (count < stock)
+    setCount(count + 1)
+}
+const sacar = () => {
+ if (count ? count !== 1 : count !== 0 )
+  {setCount(count - 1)}
+}
+
+
+const onAdd =() => {
+  if(count === 1){
+    alert(`Agregando al carrito ${count} Unidad`)
+  }  else if (count > 1){
+    alert(`Agregando al carrito ${count} Unidades`)
+  } else {
+    alert (`no hay unidades para agregar al carrito`)
+  }
+
+}
+
+
+
+
+
+
+
+console.log(contador)
+return (
     <>
     <div className='card text-center bg-succes'>
       <div className='overflow'>
@@ -17,7 +49,14 @@ function Card({title, imageSource, text}) {
         text ? text : 'Lorem ipsum dolor si'
       }
       </p>
-    <a href="#!" className='btn btn-outline-secondary rounded-0 '>Go to this Webside</a>
+      <div>
+        <button onClick={onAdd}className='btn btn-outline-secondary rounded-0 '>
+           Agregar al Carrito
+        </button>
+      </div>
+      <button onClick={contador} className='btn btn-outline-secondary rounded-0 '>+</button>
+    <button onClick={sacar} className='btn btn-outline-secondary rounded-0 '>-</button>
+    <p>{count}</p>
     </div>
     </div>
     </>
