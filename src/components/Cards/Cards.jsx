@@ -5,12 +5,11 @@ import arregloDos from '../assets/arregloDos.jpeg';
 import arregloTres from '../assets/arregloTres.jpeg';
 import arregloCuatro from '../assets/arregloCuatro.jpeg';
 import './Cards.scss';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
-
-function Cards() {
-
-    const cards = [
+ const cards = [
     {
         id: 1,
         title: 'title uno',
@@ -44,15 +43,32 @@ function Cards() {
     }
 ]
 
+const getFetch = new Promise((resolve) => {
+    setTimeout(()=>{
+        resolve(cards)
+    }, 7000)
+})
 
 
+
+function Cards() {
+const [cards, setcards] = useState ([])
+const [loading, setLoading ] = useState(true)
+
+useEffect(()=>{
+    getFetch
+    .then(respuesta => setcards(respuesta))
+    .catch((err)=> console.log(err))
+    .finally(()=> setLoading(false))
+
+
+})
 
 
 return (
     <div className='container d-flex justify-content-center h-100 align-items-center '>
         <div className='row'>
-            {
-                cards.map(cards => <div className='col-md-3' key={cards.id}>
+            { loading ? <h2>Cargando</h2>  : cards.map((cards) => <div className='col-md-3' key={cards.id}> 
                 <Card
                 title={cards.title}
                 imageSource={cards.image}

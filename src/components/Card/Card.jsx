@@ -29,12 +29,6 @@ const onAdd =() => {
 
 }
 
-
-
-
-
-
-
 console.log(contador)
 return (
     <>
