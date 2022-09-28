@@ -5,9 +5,9 @@ import ItemCount from '../ItemCount/ItemCount';
 
 
 
-function Item({title, imageSource, text, initial, stock}) {
- 
-  
+function Item({title, imageSource, text, initial, stock, id}) {
+
+
 return (
     <>
     <div className='card text-center bg-succes'>
@@ -25,12 +25,12 @@ return (
     <ItemCount
       initialCount={initial}
       stockCount={stock}
+      detalleId={id}
         />
     </div>
     </>
   )
 } 
-
 
 
 Item.propTypes ={

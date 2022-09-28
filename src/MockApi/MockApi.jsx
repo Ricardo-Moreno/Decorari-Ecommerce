@@ -11,7 +11,8 @@ export const itemList = [
         image: arregloUno,
         text: 'este es el arreglo 1',
         stock: 5,
-        initial: 1
+        initial: 1,
+        price: 5000
     },
     {
         id: 2,
@@ -38,7 +39,7 @@ export const itemList = [
     }
 ]
 
-export function getSingleItem(idItem){
+export function getSingleProduct(idItem){
     return new Promise((resolve, reject)=>{
         setTimeout(() => {
             let itemListFind = itemList.find( item => item.id === idItem)

@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-function ItemCount({initialCount, stockCount}) {
+function ItemCount({initialCount, stockCount, detalleId }) {
 
 
   const [ count, setCount]= useState(initialCount)
@@ -27,14 +28,14 @@ function ItemCount({initialCount, stockCount}) {
   
   }
   
-  console.log(contador)
+  console.log(detalleId)
 
   return (
     <>
     <div>
-        <button onClick={onAdd}className='btn btn-outline-secondary rounded-0 '>
+       <Link to={`detalle/${detalleId}`} ><button onClick={onAdd}className='btn btn-outline-secondary rounded-0 '>
            Agregar al Carrito
-        </button>
+        </button></Link> 
       </div>
       <button onClick={contador} className='btn btn-outline-secondary rounded-0 '>+</button>
     <button onClick={sacar} className='btn btn-outline-secondary rounded-0 '>-</button>

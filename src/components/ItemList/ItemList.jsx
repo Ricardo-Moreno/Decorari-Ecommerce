@@ -6,13 +6,14 @@ return (
     
     <div className='container d-flex justify-content-center h-100 align-items-center '>
         <div className='row'>
-            { data.map((itemList) => <div className='col-md-3' key={ItemList.id}>
+            { data.map((itemList) => <div className='col-md-3' key={itemList.id}>
                 <Item
                 title={itemList.title}
                 imageSource={itemList.image}
                 text={itemList.text}
                 initial={itemList.initial}
                 stock={itemList.stock}
+                id={itemList.id}
                 />
             </div>)
             }
