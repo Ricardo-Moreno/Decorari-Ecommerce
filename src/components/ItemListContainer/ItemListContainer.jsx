@@ -1,6 +1,7 @@
 import { itemList } from '../../MockApi/MockApi';
 import ItemList from '../ItemList/ItemList'
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -13,7 +14,10 @@ const getFetch = new Promise((resolve) => {
 
 function ItemListContainer() {
 
-  const [itemList, setitemList] = useState ([])
+const [itemList, setitemList] = useState ([])
+const { id } = useParams() 
+
+
 
 useEffect(()=>{
     getFetch
@@ -22,6 +26,7 @@ useEffect(()=>{
 
 })
 
+console.log(id)
 
     return (
         <div className="container">

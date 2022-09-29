@@ -2,6 +2,7 @@
 import './Item.scss';
 import PropTypes from 'prop-types'
 import ItemCount from '../ItemCount/ItemCount';
+import Stack from 'react-bootstrap/Stack';
 
 
 
@@ -10,7 +11,8 @@ function Item({title, imageSource, text, initial, stock, id}) {
 
 return (
     <>
-    <div className='card text-center bg-succes'>
+    <Stack gap={6} className="col-md-10 mx-auto">
+    <div className='card text-center bg-succes margin-tod'>
       <div className='overflow'>
         <img className='img card-img-top' src={imageSource} alt="" />
       </div>
@@ -28,6 +30,7 @@ return (
       detalleId={id}
         />
     </div>
+    </Stack>
     </>
   )
 } 
