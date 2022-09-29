@@ -2,7 +2,7 @@
 import './Item.scss';
 import PropTypes from 'prop-types'
 import ItemCount from '../ItemCount/ItemCount';
-import Stack from 'react-bootstrap/Stack';
+import { Link } from 'react-router-dom';
 
 
 
@@ -11,7 +11,6 @@ function Item({title, imageSource, text, initial, stock, id}) {
 
 return (
     <>
-    <Stack gap={6} className="col-md-10 mx-auto">
     <div className='card text-center bg-succes margin-tod'>
       <div className='overflow'>
         <img className='img card-img-top' src={imageSource} alt="" />
@@ -23,6 +22,9 @@ return (
         text ? text : 'Lorem ipsum dolor si'
       }
       </p>
+      <Link to={`detalle/${id}`} >
+      <button className='btn btn-outline-secondary rounded-0'>Comprar</button>
+      </Link>
     </div>
     <ItemCount
       initialCount={initial}
@@ -30,7 +32,6 @@ return (
       detalleId={id}
         />
     </div>
-    </Stack>
     </>
   )
 } 

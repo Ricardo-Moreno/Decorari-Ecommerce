@@ -1,4 +1,4 @@
-import { itemList } from '../../MockApi/MockApi';
+import { getFetch } from '../../MockApi/MockApi';
 import ItemList from '../ItemList/ItemList'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -6,25 +6,24 @@ import { useParams } from 'react-router-dom';
 
 
 
-const getFetch = new Promise((resolve) => {
-  setTimeout(()=>{
-      resolve(itemList)
-  }, 2000)
-})
-
 function ItemListContainer() {
 
 const [itemList, setitemList] = useState ([])
-const { id } = useParams() 
+const { id } = useParams()
 
 
 
-useEffect(()=>{
-    getFetch
+useEffect( () => {
+    if(id) {
+    getFetch()
+    .then(respuesta => setitemList(respuesta.filter((prods) => prods.category === id)))
+    .catch((err)=> console.log(err))
+    }else {
+    getFetch()
     .then(respuesta => setitemList(respuesta))
     .catch((err)=> console.log(err))
-
-})
+    }
+}, [id])
 
 console.log(id)
 

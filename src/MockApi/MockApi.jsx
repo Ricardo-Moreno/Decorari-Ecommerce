@@ -12,7 +12,7 @@ import arregloOcho from '../components/assets/arregloOcho.jpeg';
 export const itemList = [
     {
         id: 1,
-       // category: 'Box Aniversario',
+        category:'boxAniversario',
         title: 'Brothers Birthday',
         image: arregloUno,
         text: 'Perfecto para Regalar a tu hermano favorito',
@@ -22,7 +22,7 @@ export const itemList = [
     },
     {
         id: 2,
-        //category: 'Box Cumpleaños',
+        category:'boxCumpleaños',
         title: 'Black and White',
         image: arregloDos,
         text: 'Un arreglo muy elegante para una ocasión muy especial',
@@ -32,7 +32,7 @@ export const itemList = [
     },
     {
         id: 3,
-        //category: 'Box Aniversario',
+        category:'boxAniversario',
         title: 'titulo tres',
         image: arregloTres,
         text: 'este es el arreglo 3',
@@ -42,7 +42,7 @@ export const itemList = [
     },
     {
         id: 4,
-        //category: 'Box Cumpleaños',
+        category:'boxCumpleaños',
         title: 'titulo tres',
         image: arregloCuatro,
         text: 'este es el arreglo 4',
@@ -52,7 +52,7 @@ export const itemList = [
     },
     {
         id: 5,
-        //category: 'boxAniversario',
+        category:'boxAniversario',
         title: 'Brothers Birthday',
         image: arregloCinco,
         text: 'Perfecto para Regalar a tu hermano favorito',
@@ -62,7 +62,7 @@ export const itemList = [
     },
     {
         id: 6,
-       // category: 'boxCumpleaños',
+        category:'boxCumpleaños',
         title: 'Black and White',
         image: arregloSeis,
         text: 'Un arreglo muy elegante para una ocasión muy especial',
@@ -72,7 +72,7 @@ export const itemList = [
     },
     {
         id: 7,
-        //category: 'Box Aniversario',
+        category:'boxAniversario',
         title: 'titulo tres',
         image: arregloSiete,
         text: 'este es el arreglo 3',
@@ -82,7 +82,7 @@ export const itemList = [
     },
     {
         id: 8,
-        //category: 'Box Cumpleaños',
+        category:'boxCumpleaños',
         title: 'titulo tres',
         image: arregloOcho,
         text: 'este es el arreglo 4',
@@ -99,7 +99,13 @@ export const getSingleProduct = (idItem) => {
             resolve ( itemListFind )
         }, 1500);
     })
-
-    
 }
 
+ export const getFetch = (id) => {
+    return new Promise((resolve)=>{
+    setTimeout(()=>{
+        const itemListCategory = id ? itemList.find( item => item.id === id ) : itemList
+            resolve ( itemListCategory )
+    }, 2000)
+})
+}

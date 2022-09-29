@@ -4,6 +4,7 @@ import '../NavBar/NavBar.scss';
 import CartWidget from '../CartWidget/CartWidget';
 import {IconContext} from 'react-icons';
 import { FaBars, FaAddressBook, FaShoppingCart, FaPalette, FaLayerGroup, FaHome, FaTimes } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 
 
@@ -26,19 +27,25 @@ function NavBar() {
           <MenuItemLink onClick={()=> setShowMobileMenu(!showMobileMenu)}>
           <div>
             <FaHome/>
+            <Link to='/'>
             Home
+            </Link>
           </div>
           </MenuItemLink>
           <MenuItemLink onClick={()=> setShowMobileMenu(!showMobileMenu)}>
           <div>
             <FaPalette/>
-            Decoraciones
+            <Link to='/category/boxAniversario'>
+              Arreglos Aniversario
+            </Link>
           </div>
           </MenuItemLink>
-          <MenuItemLink onClick={()=> setShowMobileMenu(!showMobileMenu)}>
+          <MenuItemLink  onClick={()=> setShowMobileMenu(!showMobileMenu)}>
           <div>
             <FaLayerGroup/>
-            Catalogo
+            <Link to='/category/boxCumpleaños'>
+            Arreglos de Cumplaeños
+            </Link>
           </div>
           </MenuItemLink>
           <MenuItemLink onClick={()=> setShowMobileMenu(!showMobileMenu)}>
