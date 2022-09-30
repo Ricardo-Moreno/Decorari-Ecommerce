@@ -15,8 +15,7 @@ function ItemDetail({data}) {
             <div className='detail-buy'>
                     <h2 className='detail-price'>$ {data.price}</h2>
                 <Button variant='dark' className='detail-button'>
-                    <AiOutlineShoppingCart className="cart-icon-button" />
-                    Agregar al carrito
+                    Comprar
                 </Button>
             </div>
         </div>
