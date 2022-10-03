@@ -1,12 +1,11 @@
 
 import './Item.scss';
 import PropTypes from 'prop-types'
-import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 
 
-function Item({title, imageSource, text, initial, stock, id}) {
+function Item({title, imageSource, text, id}) {
 
 
 return (
@@ -23,14 +22,9 @@ return (
       }
       </p>
       <Link to={`detalle/${id}`} >
-      <button className='btn btn-outline-secondary rounded-0'>Comprar</button>
+      <button className='btn btn-outline-secondary rounded-0'>Ver Detalle</button>
       </Link>
     </div>
-    <ItemCount
-      initialCount={initial}
-      stockCount={stock}
-      detalleId={id}
-        />
     </div>
     </>
   )

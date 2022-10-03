@@ -33,12 +33,17 @@ function ItemCount({initialCount, stockCount, detalleId }) {
   return (
     <>
     <div>
-       <Link to={`detalle/${detalleId}`} ><button onClick={onAdd}className='btn btn-outline-secondary rounded-0 '>
-           Agregar al Carrito
-        </button></Link> 
+    <Link to={`/`} ><button className='btn btn-outline-info rounded-0 '>
+        Seguir Comprando
+        </button>
+    </Link>
+    <Link to={`/Cart`} ><button onClick={onAdd}className='btn btn-outline-info rounded-0 '>
+        Agregar al Carrito
+        </button>
+    </Link>
       </div>
-      <button onClick={contador} className='btn btn-outline-secondary rounded-0 '>+</button>
-    <button onClick={sacar} className='btn btn-outline-secondary rounded-0 '>-</button>
+      <button onClick={contador} className='btn btn-outline-info rounded-0 '>+</button>
+    <button onClick={sacar} className='btn btn-outline-info rounded-0 '>-</button>
     <p>{count}</p>
     </>
   )

@@ -1,10 +1,26 @@
 
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import { AiOutlineShoppingCart } from "react-icons/ai"
+import ItemCount from '../ItemCount/ItemCount';
+//import { AiOutlineShoppingCart } from "react-icons/ai"
 import './ItemDetail.css';
 
 
 function ItemDetail({data}) {
+
+const [ inputType, setInputType ] = useState('1')
+
+const ButtonCount = ({handleInter}) => {
+        return <button
+        className='btn btn'
+        onClick={handleInter}> Agragar Al carrito</button>
+}
+
+const handleInter = () => {
+    setInputType('2')
+}
+
+
 
     return (
         <div className='detail-container'>
@@ -14,9 +30,16 @@ function ItemDetail({data}) {
             </div>
             <div className='detail-buy'>
                     <h2 className='detail-price'>$ {data.price}</h2>
-                <Button variant='dark' className='detail-button'>
-                    Comprar
-                </Button>
+                { inputType === '1' ? 
+                <Button variant='primary' >
+                <ButtonCount handleInter={handleInter}/>
+                </Button>:
+                <ItemCount
+                    initialCount={data.initial}
+                    stockCount={data.stock}
+                    detalleId={data.id}
+                        />
+                }
             </div>
         </div>
     )
