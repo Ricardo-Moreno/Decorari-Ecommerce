@@ -9,6 +9,7 @@ import './ItemDetail.css';
 function ItemDetail({data}) {
 
 const [ inputType, setInputType ] = useState('1')
+const [ estadoCount, setEstadoCount ] = useState()
 
 const ButtonCount = ({handleInter}) => {
         return <button
@@ -20,7 +21,12 @@ const handleInter = () => {
     setInputType('2')
 }
 
+const pasar = (count) => {
+    setEstadoCount(count)
+}
 
+
+console.log(estadoCount)
 
     return (
         <div className='detail-container'>
@@ -30,7 +36,7 @@ const handleInter = () => {
             </div>
             <div className='detail-buy'>
                     <h2 className='detail-price'>$ {data.price}</h2>
-                { inputType === '1' ? 
+                { inputType === '1' ?
                 <Button variant='primary' >
                 <ButtonCount handleInter={handleInter}/>
                 </Button>:
@@ -38,6 +44,7 @@ const handleInter = () => {
                     initialCount={data.initial}
                     stockCount={data.stock}
                     detalleId={data.id}
+                    onAdd={pasar}
                         />
                 }
             </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function ItemCount({initialCount, stockCount, detalleId }) {
+function ItemCount({initialCount, stockCount, onAdd }) {
 
 
   const [ count, setCount]= useState(initialCount)
@@ -15,20 +15,8 @@ function ItemCount({initialCount, stockCount, detalleId }) {
    if (count ? count !== 1 : count !== 0 )
     {setCount(count - 1)}
   }
-  
-  
-  const onAdd =() => {
-    if(count === 1){
-      alert(`Agregando al carrito ${count} Unidad`)
-    }  else if (count > 1){
-      alert(`Agregando al carrito ${count} Unidades`)
-    } else {
-      alert (`no hay unidades para agregar al carrito`)
-    }
-  
-  }
-  
-  console.log(detalleId)
+
+  console.log(count)
 
   return (
     <>
@@ -37,10 +25,10 @@ function ItemCount({initialCount, stockCount, detalleId }) {
         Seguir Comprando
         </button>
     </Link>
-    <Link to={`/Cart`} ><button onClick={onAdd}className='btn btn-outline-info rounded-0 '>
+    {/*<Link to={`/Cart`} >*/}<button onClick={()=> onAdd(count)}className='btn btn-outline-info rounded-0 '>
         Agregar al Carrito
         </button>
-    </Link>
+    {/*</Link>*/}
       </div>
       <button onClick={contador} className='btn btn-outline-info rounded-0 '>+</button>
     <button onClick={sacar} className='btn btn-outline-info rounded-0 '>-</button>

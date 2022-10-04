@@ -14,8 +14,7 @@ function ItemDetailContainer() {
         .catch((err) => console.log(err))
      }, [detalleId])
 
-     console.log(product.image)
-console.log(detalleId)
+
 
   return (
     <>
