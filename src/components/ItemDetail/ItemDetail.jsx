@@ -10,7 +10,7 @@ import './ItemDetail.css';
 function ItemDetail({data}) {
 
 const [ inputType, setInputType ] = useState('1')
-const [ estadoCount, setEstadoCount ] = useState()
+//const [ estadoCount, setEstadoCount ] = useState()
 
 const {addItem} = useContext(CartContext)
 
@@ -25,12 +25,11 @@ const handleInter = () => {
 }
 
 const pasar = (count) => {
-    setEstadoCount(count)
     addItem(data, count)
 }
 
 
-console.log(estadoCount)
+console.log(data)
 
     return (
         <div className='detail-container'>

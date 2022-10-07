@@ -21,6 +21,8 @@ const addItem = (item, count) => {
         count
     }
 
+    console.log(newItem)
+
     if(isIntCart(newItem.id)){
         const findProduct = cart.find(x => x.id === newItem.id)
         const productIndex = cart.indexOf(findProduct)
@@ -30,6 +32,7 @@ const addItem = (item, count) => {
     }else {
         setCart([...cart, newItem])
     }
+console.log(setCart)
 
 }
 // Borra todos los productos de nuestro Cart Ejemplo se le asigna un boton

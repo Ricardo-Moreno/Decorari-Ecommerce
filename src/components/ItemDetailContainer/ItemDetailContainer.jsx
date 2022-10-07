@@ -14,7 +14,7 @@ function ItemDetailContainer() {
         .catch((err) => console.log(err))
      }, [detalleId])
 
-
+console.log(product)
 
   return (
     <>
