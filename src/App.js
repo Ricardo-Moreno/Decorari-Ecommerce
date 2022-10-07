@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import './App.scss';
 import Cart from './components/Cart/Cart';
+import MyProvider from './components/context/CartContext';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
@@ -11,6 +12,7 @@ import NavBar from './components/NavBar/NavBar';
 function App() {
   return (
     <BrowserRouter>
+      <MyProvider>
       <div className='App'>
             <NavBar/>
       <Routes>
@@ -21,6 +23,7 @@ function App() {
           <Route path="/*" element={<Navigate to='/' replace /> } />
       </Routes>
           </div>
+      </MyProvider>
     </BrowserRouter>
   );
 }

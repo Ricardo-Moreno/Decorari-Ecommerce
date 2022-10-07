@@ -1,6 +1,7 @@
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { CartContext } from '../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 //import { AiOutlineShoppingCart } from "react-icons/ai"
 import './ItemDetail.css';
@@ -10,6 +11,8 @@ function ItemDetail({data}) {
 
 const [ inputType, setInputType ] = useState('1')
 const [ estadoCount, setEstadoCount ] = useState()
+
+const {addItem} = useContext(CartContext)
 
 const ButtonCount = ({handleInter}) => {
         return <button
@@ -23,6 +26,7 @@ const handleInter = () => {
 
 const pasar = (count) => {
     setEstadoCount(count)
+    addItem(data, count)
 }
 
 
