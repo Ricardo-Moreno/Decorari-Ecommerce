@@ -1,22 +1,22 @@
-//import decorariLogo from '../assets/decorariLogo.png';
-//import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-//import { Badge } from '@mui/material'
-import { useContext } from 'react';
+import './CartWidget.css';
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
- import {BsFillCartCheckFill} from 'react-icons/bs'
- 
+import { useContext } from 'react';
+
 function CartWidget() {
+    const { getItemQty } = useContext(CartContext);
 
-const { getItemQty } = useContext(CartContext)
 
-  return (
-    <>
-    <BsFillCartCheckFill>{getItemQty()}</BsFillCartCheckFill>
-    {/*<Badge badgeContent={getItemQty()}>
-    <ShoppingCartIcon />
-  </Badge>*/}
-    </>
-  )
+    return (
+        <Link className='detail-cart' to={"/cart"}>
+            <div className="cart-container">
+                <AiOutlineShoppingCart
+                    className='cart-icono' />
+                <div className={getItemQty() <= 0 ? 'display-none' : 'display'}>{getItemQty() > 0 && getItemQty()}</div>
+            </div>
+        </Link>
+    )
 }
 
-export default CartWidget 
+export default CartWidget;

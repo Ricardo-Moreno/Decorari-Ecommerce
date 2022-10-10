@@ -11,7 +11,8 @@ const MyProvider = ({children}) => {
 
 // Metodo sam - indica si el producto agregado al carrito, ya existe o no en cart
 const isIntCart = (id) => {
-    return cart.some(x => x.id === id )
+    let found = cart.some(item => item.id === id);
+    return found;
 }
 // Agrega prodcuto al carrito sin pisar los productos ya existentes
 const addItem = (item, count) => {
@@ -32,7 +33,6 @@ const addItem = (item, count) => {
     }else {
         setCart([...cart, newItem])
     }
-console.log(setCart)
 
 }
 // Borra todos los productos de nuestro Cart Ejemplo se le asigna un boton

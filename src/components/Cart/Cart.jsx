@@ -1,7 +1,49 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import './Cart.css'
+import { Link } from 'react-router-dom';
+import { AiOutlineDelete } from "react-icons/ai";
 
-export default function Cart() {
+
+
+function Cart() {
+  const context = useContext(CartContext);
+  const { cart, deleteItem, emptyCard, getItemPrice } = context;
+
+
+  if (cart.length === 0) {
+    return <div className='cartview-emptycard-text'><h1>Tu carrito esta vacio...<Link className='cartview-link-home' to={"/"}>Seguir comprando</Link></h1></div>
+  }
+
+
+
   return (
-    <div>Cart</div>
+
+    
+    <div className='cartview-container'>
+      {cart.map(item => (
+        <div className='cartview-item' key={item.id}>
+
+          <div className='cartview-iyt'>
+            <img className='cartview-img' src={item.image} alt={item.title} />
+          </div>
+          <div className='cartview-description'>
+            <h2 className='cartview-title'>{item.title}</h2>
+            <div className='cartview-description-info'>
+              <span className='cartview-price'>${item.price}</span>
+              <span className='cartview-count'>Cantidad: {item.count}</span>
+              <span className='cartview-button-delete' onClick={() => deleteItem(item.id)}><AiOutlineDelete /></span>
+            </div>
+          </div>
+        </div>
+      ))}
+      <div className='cartview-total-container'>
+        <button className='cartview-button-emptycard' onClick={emptyCard}>Vaciar carrito</button>
+        <button className='cartview-button-finish'>Finalizar Compra</button>
+      </div>
+        <h2 className='cartview-total'>Total: ${getItemPrice()}</h2>
+    </div>
   )
 }
+
+export default Cart
