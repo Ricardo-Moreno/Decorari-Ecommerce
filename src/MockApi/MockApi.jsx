@@ -1,12 +1,3 @@
-import  arregloUno  from '../components/assets/arregloUno.jpeg';
-import arregloDos from '../components/assets/arregloDos.jpeg';
-import arregloTres from '../components/assets/arregloTres.jpeg';
-import arregloCuatro from '../components/assets/arregloCuatro.jpeg';
-import arregloCinco from '../components/assets/arregloCinco.jpeg';
-import arregloSeis from '../components/assets/arregloSeis.jpeg';
-import arregloSiete from '../components/assets/arregloSiete.jpeg';
-import arregloOcho from '../components/assets/arregloOcho.jpeg';
-
 
 
 export const itemList = [
@@ -14,7 +5,7 @@ export const itemList = [
         id: 1,
         category:'boxAniversario',
         title: 'Brothers Birthday',
-        image: arregloUno,
+        image: 'https://i.ibb.co/WyjCjZt/arreglo-Cinco.jpg',
         text: 'Perfecto para Regalar a tu hermano favorito',
         stock: 5,
         initial: 1,
@@ -24,7 +15,7 @@ export const itemList = [
         id: 2,
         category:'boxCumpleaños',
         title: 'Black and White',
-        image: arregloDos,
+        image: 'https://i.ibb.co/zs5Cfgh/arreglo-Cuatro.jpg',
         text: 'Un arreglo muy elegante para una ocasión muy especial',
         stock: 5,
         initial: 1,
@@ -34,7 +25,7 @@ export const itemList = [
         id: 3,
         category:'boxAniversario',
         title: 'titulo tres',
-        image: arregloTres,
+        image: 'https://i.ibb.co/gPCFfNq/arreglo-Dos.jpg',
         text: 'este es el arreglo 3',
         stock: 5,
         initial: 1,
@@ -44,47 +35,7 @@ export const itemList = [
         id: 4,
         category:'boxCumpleaños',
         title: 'titulo tres',
-        image: arregloCuatro,
-        text: 'este es el arreglo 4',
-        stock: 0,
-        initial: 0,
-        price: 5000
-    },
-    {
-        id: 5,
-        category:'boxAniversario',
-        title: 'Brothers Birthday',
-        image: arregloCinco,
-        text: 'Perfecto para Regalar a tu hermano favorito',
-        stock: 5,
-        initial: 1,
-        price: 5000
-    },
-    {
-        id: 6,
-        category:'boxCumpleaños',
-        title: 'Black and White',
-        image: arregloSeis,
-        text: 'Un arreglo muy elegante para una ocasión muy especial',
-        stock: 5,
-        initial: 1,
-        price: 5000
-    },
-    {
-        id: 7,
-        category:'boxAniversario',
-        title: 'titulo tres',
-        image: arregloSiete,
-        text: 'este es el arreglo 3',
-        stock: 5,
-        initial: 1,
-        price: 5000
-    },
-    {
-        id: 8,
-        category:'boxCumpleaños',
-        title: 'titulo tres',
-        image: arregloOcho,
+        image: 'https://i.ibb.co/VBf9ctJ/arreglo-Nueve.jpg',
         text: 'este es el arreglo 4',
         stock: 0,
         initial: 0,

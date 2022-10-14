@@ -1,10 +1,9 @@
-import decorariLogo from '../assets/decorariLogo.png';
 
 import React from 'react'
 
 function Logo() {
   return (
-    <><img className="img-fluid" width='200' src={ decorariLogo } alt='Logo Decorari'/></>
+    <><img className="img-fluid" width='200' src='https://i.ibb.co/PFnR0K5/decorari-Logo.png' alt='Logo Decorari'/></>
   )
 }
 
