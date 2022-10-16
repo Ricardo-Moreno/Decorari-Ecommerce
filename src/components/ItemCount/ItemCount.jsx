@@ -25,10 +25,9 @@ function ItemCount({initialCount, stockCount, onAdd }) {
         Seguir Comprando
         </button>
     </Link>
-    {/*<Link to={`/Cart`} >*/}<button onClick={()=> onAdd(count)}className='btn btn-outline-info rounded-0 '>
-        Agregar al Carrito
+    <button onClick={()=> onAdd(count)}className='btn btn-outline-info rounded-0 '>
+        Agregar
         </button>
-    {/*</Link>*/}
       </div>
       <button onClick={contador} className='btn btn-outline-info rounded-0 '>+</button>
     <button onClick={sacar} className='btn btn-outline-info rounded-0 '>-</button>

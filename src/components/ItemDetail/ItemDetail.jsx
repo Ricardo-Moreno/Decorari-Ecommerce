@@ -1,7 +1,6 @@
 
 import { useEffect } from 'react';
 import { useContext, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import { CartContext } from '../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
@@ -55,9 +54,8 @@ color="#CE863E"
             <div className='detail-buy'>
                     <h2 className='detail-price'>$ {data.price}</h2>
                 { inputType === '1' ?
-                <Button variant='primary' >
-                <ButtonCount handleInter={handleInter}/>
-                </Button>:
+                <ButtonCount variant='primary' handleInter={handleInter}/>
+                :
                 <ItemCount
                     initialCount={data.initial}
                     stockCount={data.stock}

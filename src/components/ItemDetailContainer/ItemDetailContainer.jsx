@@ -1,26 +1,24 @@
-//import ItemDetail from "../ItemDetail/ItemDetail"
 import React, { useState, useEffect } from 'react';
-import { getSingleProduct } from '../../MockApi/MockApi';
-import { useParams } from "react-router-dom";
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { getFirestore, doc, getDoc} from 'firebase/firestore'
 
 function ItemDetailContainer() {
-    const [product, setProduct] = useState({})
-    const { detalleId } = useParams()
+  const [itemLis, setitemLis] = useState ({})
 
-    useEffect(() => {
-        getSingleProduct(detalleId)
-        .then(resp => setProduct(resp))
-        .catch((err) => console.log(err))
-     }, [detalleId])
 
-console.log(product)
+    useEffect(()=>{
+      const db  = getFirestore()
+      const dbQuery = doc(db, 'items', '3HQHVjWTVuN1uIVsW9HK')
+      getDoc(dbQuery)
+      .then(resp => setitemLis({id: resp.id, ...resp.data()}))
+  }, [])
+
 
   return (
     <>
     <div>
       <ItemDetail
-      data={product}
+      data={itemLis}
       />
     </div>
     </>

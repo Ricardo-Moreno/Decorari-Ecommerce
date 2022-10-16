@@ -1,6 +1,5 @@
 
 import './Item.scss';
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
 
@@ -28,13 +27,9 @@ return (
     </div>
     </>
   )
-} 
-
-
-Item.propTypes ={
-  title: PropTypes.string.isRequired,
-  imageSource: PropTypes.string,
-  text: PropTypes.string
 }
+
+
+
 
 export default Item
