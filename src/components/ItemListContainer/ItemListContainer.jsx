@@ -16,20 +16,18 @@ useEffect(()=>{
     const db  = getFirestore()
 
     if (id){
-
     const queryCollection = collection(db, 'items')
     const queryCollectionFilter = query(queryCollection, where('category', '==', id))
     getDocs(queryCollectionFilter)
     .then(resp => setitemList(resp.docs.map(item => ({id: item.id, ...item.data()} ))))
     .catch((err)=> console.log(err))
     .finally (()=>setLoading(true))
-   } else {
+} else {
     const queryCollection = collection(db, 'items')
     getDocs(queryCollection)
     .then(resp => setitemList(resp.docs.map(item => ({id: item.id, ...item.data()} ))))
     .catch((err)=> console.log(err))
     .finally (()=>setLoading(true))
- 
 }},[id])
 
 console.log(id)

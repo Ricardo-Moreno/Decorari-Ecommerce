@@ -19,17 +19,21 @@ function NavBar() {
        <Navbar.Brand><Logo/></Navbar.Brand>
        <Navbar.Toggle aria-controls="basic-navbar-nav" />
        <Navbar.Collapse id="basic-navbar-nav">
+        <Link to={'/'}>Home</Link>
          <Nav className="me-auto">
            <Link to='/'>Home</Link>
            <Link>Encargos</Link>
            <NavDropdown title="Catalogo" id="basic-nav-dropdown">
-             <NavDropdown.Item >
+            <div>
+              <Link to={'/category/tienda'}>
               Arreglos Aniversario
-              </NavDropdown.Item>
-             <NavDropdown.Item >
+              </Link>
+            </div>
+            <div>
+              <Link to={'/category/regalo'}>
               Arreglos de Cumplaeños
-              </NavDropdown.Item>
-             <NavDropdown.Item>Otros</NavDropdown.Item>
+              </Link>
+            </div>
            </NavDropdown>
          </Nav>
        </Navbar.Collapse>
