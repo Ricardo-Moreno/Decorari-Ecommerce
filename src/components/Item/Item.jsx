@@ -17,7 +17,7 @@ return (
     <h4 className='card-title text-secondary'>{title}</h4>
     <p className='card-text text-secondary'>
       {
-        text ? text : 'Lorem ipsum dolor si'
+        text ? text : 'Detalle'
       }
       </p>
       <Link to={`detalle/${id}`} >

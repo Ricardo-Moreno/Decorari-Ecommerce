@@ -16,19 +16,20 @@ useEffect(()=>{
     const db  = getFirestore()
 
     if (id){
-    const queryCollection = collection(db, 'items')
-    const queryCollectionFilter = query(queryCollection, where('category', '==', id))
+    const queryCollection = collection(db, "items")
+    const queryCollectionFilter = query(queryCollection, where("category", "==", id))
     getDocs(queryCollectionFilter)
     .then(resp => setitemList(resp.docs.map(item => ({id: item.id, ...item.data()} ))))
     .catch((err)=> console.log(err))
     .finally (()=>setLoading(true))
-} else {
-    const queryCollection = collection(db, 'items')
+    } else {
+    const queryCollection = collection(db, "items")
     getDocs(queryCollection)
     .then(resp => setitemList(resp.docs.map(item => ({id: item.id, ...item.data()} ))))
     .catch((err)=> console.log(err))
     .finally (()=>setLoading(true))
-}},[id])
+    }
+},[id])
 
 console.log(id)
 
@@ -53,4 +54,4 @@ color="#CE863E"
     )
 }
 
-export default ItemListContainer;
+export default ItemListContainer

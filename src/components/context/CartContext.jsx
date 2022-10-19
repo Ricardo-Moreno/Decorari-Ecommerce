@@ -36,7 +36,7 @@ const addItem = (item, count) => {
 
 }
 // Borra todos los productos de nuestro Cart Ejemplo se le asigna un boton
-const emptyCart = () => {
+const vaciarCarrito = () => {
     return setCart([])
 }
 // borrar un producto espesifico del carrito Ejemplo : la cruz para eliminar item
@@ -53,7 +53,7 @@ const getItemPrice = () => {
 }
 
 
-return  <Provider value={{cart, isIntCart, addItem, emptyCart, deleteItem, getItemQty, getItemPrice }}>{children}</Provider>
+return  <Provider value={{cart, isIntCart, addItem, vaciarCarrito, deleteItem, getItemQty, getItemPrice }}>{children}</Provider>
 
 }
 
