@@ -21,16 +21,16 @@ function NavBar() {
        <Navbar.Collapse id="basic-navbar-nav">
         <Link to={'/'}>Home</Link>
          <Nav className="me-auto">
-           <Link to={'/category/1'}>Home</Link>
-           <Link to={'/category/2'}>Encargos</Link>
+           <Link to={'/'}>Home</Link>
+           <Link to={'/'}>Encargos</Link>
            <NavDropdown title="Catalogo" id="basic-nav-dropdown">
             <div>
-              <Link to={'/'}>
+              <Link to={'/category/1'}>
               Arreglos Aniversario
               </Link>
             </div>
             <div>
-              <Link to={`/`}>
+              <Link to={'/category/2'}>
               Arreglos de Cumplaeños
               </Link>
             </div>
