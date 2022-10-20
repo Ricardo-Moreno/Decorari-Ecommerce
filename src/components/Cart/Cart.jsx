@@ -3,13 +3,17 @@ import { CartContext } from '../context/CartContext';
 import './Cart.css'
 import { Link } from 'react-router-dom';
 import { AiOutlineDelete } from "react-icons/ai";
-import { addDoc, collection, doc, getFirestore, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { useNavigate } from "react-router-dom"
+// import { useState } from 'react';
 
 
 
 function Cart() {
   const context = useContext(CartContext);
   const { cart, deleteItem, vaciarCarrito, getItemPrice } = context;
+  const navigate = useNavigate()
+  // const [ orderid, setOrderId ] = useState()
 
 
   if (cart.length === 0) {
@@ -35,19 +39,19 @@ function generarOrden(){
 
   // crear
   const db = getFirestore()
-  // const queryCollection = collection(db, "orders")
-  // addDoc(queryCollection, orden)
-  // .then(resp => console.log(resp))
-  // .catch(err => console.log(err))
-  // .finally(()=> vaciarCarrito())
+  const queryCollection = collection(db, "orders")
+  addDoc(queryCollection, orden)
+  .then(resp => navigate(`/checkout/${resp.id}`))
+  .catch(err => console.log(err))
+  .finally(()=> vaciarCarrito())
 
   //  update
-  const queryItem = doc(db, 'items', '3HQHVjWTVuN1uIVsW9HK')
+  // const queryItem = doc(db, 'items', '3HQHVjWTVuN1uIVsW9HK')
 
-  updateDoc(queryItem, {
-    stock: 20
-  })
-  .then(()=> console.log('tarea fin'))
+  // updateDoc(queryItem, {
+  //   stock: 20
+  // })
+  // .then(()=> console.log('tarea fin'))
 
 }
 
