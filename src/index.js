@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
 import App from './App';
-import getFireStoreApp from './firebase/config';
 
-getFireStoreApp()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

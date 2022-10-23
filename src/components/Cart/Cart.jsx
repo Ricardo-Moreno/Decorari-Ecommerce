@@ -15,7 +15,6 @@ function Cart() {
   const navigate = useNavigate()
   // const [ orderid, setOrderId ] = useState()
 
-
   if (cart.length === 0) {
     return <div className='cartview-emptycard-text'><h1>Tu carrito esta vacio...<Link className='cartview-link-home' to={"/"}>Seguir comprando</Link></h1></div>
   }
@@ -31,12 +30,11 @@ function generarOrden(){
   orden.items = cart.map(cartItem => {
     const id = cartItem.id
     const nombre = cartItem.title
-    const precio = cartItem.price * cartItem.cantidad
-
+    const precio = parseFloat(cartItem.price * cartItem.count)
+console.log(cartItem.count)
       return {id, nombre, precio}
 
   })
-
   // crear
   const db = getFirestore()
   const queryCollection = collection(db, "orders")

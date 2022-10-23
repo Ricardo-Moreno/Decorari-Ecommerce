@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import { getFirestore, doc, getDoc} from 'firebase/firestore'
 import { RaceBy } from '@uiball/loaders';
 import { useParams } from 'react-router-dom';
+import {getSingleItem} from '../../firebase/config'
 
 function ItemDetailContainer() {
   const [itemLis, setitemLis] = useState ({})
   const [loading, setLoading] = useState(false)
   const {detalleId} = useParams()
 
+console.log(detalleId)
+
     useEffect(()=>{
-      const db  = getFirestore()
-      const dbQuery = doc(db, 'items', detalleId)
-      getDoc(dbQuery)
-      .then(resp => setitemLis({id: resp.id, ...resp.data()}))
+      getSingleItem(detalleId)
+      .then((resp) => setitemLis(resp))
       .catch((err)=> console.log(err))
       .finally (()=>setLoading(true))
   }, [detalleId])
