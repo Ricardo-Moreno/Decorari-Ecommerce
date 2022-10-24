@@ -1,54 +1,87 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {useCartContext} from "../../../context/CartContext";
-import {generarOrden} from "../../../services/Firestore";
-import Input from "../CheckoutFormInput/CheckoutFormInput";
+import { CartContext } from '../context/CartContext';
+import { createBuyOrder } from '../../firebase/config';
+
 
 function CheckoutForm() {
-  const [dataForm, setDataForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-  });  //Me gusta más así porque da más claridad de qué keys tiene el diccionario.
 
-  const navigate = useNavigate();  // Redirige a otra ruta.
-  const {cart, getTotalPrice} = useCartContext();
+const [dataForm, setDataForm] = useState({
+    name:'',
+    phone: '',
+    email: ''
+  })
+
+  const navigate = useNavigate()
+  const context = useContext(CartContext);
+  const { cart, vaciarCarrito, getItemPrice } = context;
 
   function handleCheckout(event) {
     event.preventDefault();
-
     const orderData = {
       buyer: dataForm,
       items: cart,
-      date: new Date(),
-      total: getTotalPrice(),
-    };
-
-    generarOrden(orderData).then((orderId) => {
-      navigate(`/checkout/${orderId}`);
-    });
-
+      total: getItemPrice(),
+    }
+    createBuyOrder(orderData)
+    .then(resp => navigate(`/checkout/${resp}`))
+    .catch(err => console.log(err))
+    .finally(()=> vaciarCarrito())
   }
 
-  function inputChangeHandler({target}) {
-    const {name, value} = target;
+function inputChangeHandler(event){
+  let inputName = event.target.name;
+  let value = event.target.value;
 
-    setDataForm((prevDataForm) => {
-      return { ...prevDataForm, [name]: value };
-    });
-  }
-
-  return (
-    <div className="container px-5 py-3">
-      <form className="p-5 m-5 border" onSubmit={handleCheckout}>
-        <h2 className="text-center fs-2">Finalicemos tu compra! (Pasarela de pago en proceso, la implementaré)</h2>
-        <Input value={dataForm.name} type="text" name="name" onChange={inputChangeHandler}>Nombre</Input>
-        <Input value={dataForm.phone} type="number" name="phone" onChange={inputChangeHandler}>Teléfono</Input>
-        <Input value={dataForm.email} type="email" name="email" onChange={inputChangeHandler}>Email</Input>
-        <button type="submit" className="btn btn-primary">Finalizar Compra</button>
-      </form>
-    </div>
-  );
+  const newDataForm = {...dataForm};
+  newDataForm[inputName] = value;
+  setDataForm(newDataForm);
 }
 
-export default CheckoutForm;
+
+
+  return <div className='form-container'>
+    <form onSubmit={handleCheckout}>
+      <div className='form-item'>
+        <label htmlFor="name">Nombre</label>
+          <input
+          value={dataForm.name}
+          onChange={inputChangeHandler}
+          name='name'
+          type='text'
+          placeholder='Nombre'
+          required
+          />
+      </div>
+
+      <div className='form-item'>
+        <label htmlFor="phone">Telefono</label>
+          <input
+          value={dataForm.phone}
+          onChange={inputChangeHandler}
+          name='phone'
+          type='text'
+          placeholder='Telefono'
+          required
+          />
+      </div>
+
+      <div className='form-item'>
+        <label htmlFor="name">Email</label>
+          <input
+          value={dataForm.email}
+          onChange={inputChangeHandler}
+          name='email'
+          type='text'
+          placeholder='Correo'
+          required
+          />
+      </div>
+      <button className='cartview-button-finish' onClick={handleCheckout}>Finalizar Compra</button>
+    </form>
+  </div>
+
+
+;}
+
+export default CheckoutForm

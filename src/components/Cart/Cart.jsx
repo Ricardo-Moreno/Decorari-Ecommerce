@@ -3,8 +3,10 @@ import { CartContext } from '../context/CartContext';
 import './Cart.css'
 import { Link } from 'react-router-dom';
 import { AiOutlineDelete } from "react-icons/ai";
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
-import { useNavigate } from "react-router-dom"
+// import { addDoc, collection, getFirestore } from 'firebase/firestore';
+// import { useNavigate } from "react-router-dom"
+// import { createBuyOrder } from '../../firebase/config';
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
 // import { useState } from 'react';
 
 
@@ -12,36 +14,35 @@ import { useNavigate } from "react-router-dom"
 function Cart() {
   const context = useContext(CartContext);
   const { cart, deleteItem, vaciarCarrito, getItemPrice } = context;
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   // const [ orderid, setOrderId ] = useState()
 
   if (cart.length === 0) {
     return <div className='cartview-emptycard-text'><h1>Tu carrito esta vacio...<Link className='cartview-link-home' to={"/"}>Seguir comprando</Link></h1></div>
   }
 
-
   // {buyer: {name, phone, email}, items:[{id, title, price}], total}
-function generarOrden(){
-  let orden = {}
+// function generarOrden(){
+//   let orden = {}
 
-  orden.buyer= {name: 'Ricardo', phone: '324342342', email: 'ricardo123@gmail.com'}
-  orden.total= getItemPrice()
+//   orden.buyer= {name: 'Ricardo', phone: '324342342', email: 'ricardo123@gmail.com'}
+//   orden.total= getItemPrice()
 
-  orden.items = cart.map(cartItem => {
-    const id = cartItem.id
-    const nombre = cartItem.title
-    const precio = parseFloat(cartItem.price * cartItem.count)
-console.log(cartItem.count)
-      return {id, nombre, precio}
+//   orden.items = cart.map(cartItem => {
+//     const id = cartItem.id
+//     const nombre = cartItem.title
+//     const precio = parseFloat(cartItem.price * cartItem.count)
+// console.log(cartItem.count)
+//       return {id, nombre, precio}
 
-  })
-  // crear
-  const db = getFirestore()
-  const queryCollection = collection(db, "orders")
-  addDoc(queryCollection, orden)
-  .then(resp => navigate(`/checkout/${resp.id}`))
-  .catch(err => console.log(err))
-  .finally(()=> vaciarCarrito())
+//   })
+//   // crear
+//   const db = getFirestore()
+//   const queryCollection = collection(db, "orders")
+//   addDoc(queryCollection, orden)
+//   .then(resp => navigate(`/checkout/${resp.id}`))
+//   .catch(err => console.log(err))
+//   .finally(()=> vaciarCarrito())
 
   //  update
   // const queryItem = doc(db, 'items', '3HQHVjWTVuN1uIVsW9HK')
@@ -51,7 +52,24 @@ console.log(cartItem.count)
   // })
   // .then(()=> console.log('tarea fin'))
 
-}
+// }
+
+// function handleCheckout() {
+//   const orderData = {
+//     buyer: {
+//       name: 'ricardo',
+//       phone: '2145321',
+//       email: 'ricardo123@gmail.com'
+//     },
+//     items: cart,
+//     total: getItemPrice(),
+//   }
+//   createBuyOrder(orderData)
+//   .then(resp => navigate(`/checkout/${resp}`))
+//   .catch(err => console.log(err))
+//   .finally(()=> vaciarCarrito())
+// }
+
 
   return (
 
@@ -72,11 +90,12 @@ console.log(cartItem.count)
           </div>
         </div>
       ))}
+      <h2 className='cartview-total'>Total: ${getItemPrice()}</h2>
       <div className='cartview-total-container'>
+        <CheckoutForm/>
         <button className='cartview-button-emptycard' onClick={vaciarCarrito}>Vaciar carrito</button>
-        <button className='cartview-button-finish' onClick={generarOrden}>Finalizar Compra</button>
+        {/* <button className='cartview-button-finish' onClick={handleCheckout}>Finalizar Compra</button> */}
       </div>
-        <h2 className='cartview-total'>Total: ${getItemPrice()}</h2>
     </div>
   )
 }

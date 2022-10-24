@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc } from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -26,8 +26,6 @@ export async function getItems(){
 return dataDocs;
 }
 
-
-
 export async function getSingleItem(idParams){
   console.log(idParams)
   const docRef = doc(firestore, 'items', idParams)
@@ -36,7 +34,6 @@ console.log(idParams)
   return {...docSnapshot.data(), id: docSnapshot.id}
 
 }
-
 
 export async function getItemsBycategory(catParams) {
   const collectionRef = collection(firestore, 'items');
@@ -51,14 +48,17 @@ export async function getItemsBycategory(catParams) {
   return dataDocs;
 }
 
+export async function createBuyOrder(orderData){
+  const CollectionRef = collection(firestore, 'orders');
+  let respuesta = await addDoc(CollectionRef, orderData);
+  return respuesta.id;
+}
 
-
-
-
-
-
-
-
+export async function generarTraerUnDocumento (id){
+      const documentoRef = doc(firestore, 'items', id);  
+      const documento = await getDoc(documentoRef); 
+      return { ...documento.data(), id: documento.id }
+}
 
 
 

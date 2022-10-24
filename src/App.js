@@ -20,7 +20,7 @@ function App() {
           <Route path="/category/:id" element={<ItemListContainer/>} />
           <Route path="/detalle/:detalleId" element={<ItemDetailContainer/>} />
           <Route path="/cart" element={<Cart/>}/>
-          <Route path="/checkout/:respid" element={<Checkout/>}/>
+          <Route path="/checkout/:orderId" element={<Checkout/>}/>
           <Route path="/*" element={<Navigate to='/' replace /> } />
       </Routes>
           </div>
