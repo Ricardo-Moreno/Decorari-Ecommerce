@@ -4,9 +4,9 @@ import './ItemList.scss';
 function ItemList({data}) {
 return (
     
-    <div className='container d-flex justify-content-center h-100 align-items-center '>
+    <div className='container d-flex justify-content-center align-items-center'>
         <div className='row'>
-            { data.map((itemList) => <div className='col-md-3' key={itemList.id}>
+            { data.map((itemList) => <div className='col-md-3 p-3' key={itemList.id}>
                 <Item
                 title={itemList.title}
                 imageSource={itemList.image}

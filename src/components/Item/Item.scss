@@ -2,6 +2,21 @@
     height: 300px;
     width: 250px;
 }
+.card-body{
+    padding: 0;
+    margin: 0;
+}
+.card {
+    min-height: 550px;
+}
+.card-text {
+    height: 50px;
+    width: 250px;
+    justify-content: center;
+}
+.btn {
+    justify-content: flex-end;
+}
 
 
 

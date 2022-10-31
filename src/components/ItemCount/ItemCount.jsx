@@ -16,8 +16,6 @@ function ItemCount({initialCount, stockCount, onAdd }) {
     {setCount(count - 1)}
   }
 
-  console.log(count)
-
   return (
     <>
     <div>

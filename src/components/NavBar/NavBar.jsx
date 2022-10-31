@@ -14,33 +14,35 @@ function NavBar() {
 
   return (
     <>
-    <Navbar bg="danger" expand="lg">
-     <Container>
-       <Navbar.Brand><Logo/></Navbar.Brand>
-       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-       <Navbar.Collapse id="basic-navbar-nav">
-        <Link to={'/'}>Home</Link>
-         <Nav className="me-auto">
-           <Link to={'/'}>Home</Link>
-           <Link to={'/'}>Encargos</Link>
-           <NavDropdown title="Catalogo" id="basic-nav-dropdown">
-            <div>
-              <Link to={'/category/1'}>
-              Arreglos Aniversario
-              </Link>
-            </div>
-            <div>
-              <Link to={'/category/2'}>
-              Arreglos de Cumplaeños
-              </Link>
-            </div>
-           </NavDropdown>
-         </Nav>
-       </Navbar.Collapse>
-       <CartWidget />
-     </Container>
-   </Navbar>
-   </>
+      <Navbar bg="danger" expand="lg">
+        <Container>
+        <Navbar.Brand><Logo/></Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse  className='justify-content-around' id="basic-navbar-nav">
+                <div>
+                  <Link className='text-decoration-none text-dark' to={'/'}>Home</Link>
+                </div>
+                <div>
+                  <Link className='text-decoration-none text-dark' to={'/'}>Contacto</Link>
+                </div>
+                <div>
+                  <Link className='text-decoration-none text-dark' to={'/'}>Acerca de Nosotros</Link>
+                </div>
+              <Nav className="my-2 my-lg-0">
+                  <NavDropdown  title="Catalogo">
+                    <div>
+                      <Link className='text-decoration-none text-dark m-2' to={'/category/1'}>Arreglos Aniversario</Link>
+                    </div>
+                      <div>
+                        <Link className='text-decoration-none text-dark m-2' to={'/category/2'}>Arreglos de Cumplaeños</Link>
+                      </div>
+                  </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+        <CartWidget />
+        </Container>
+      </Navbar>
+    </>
   )
 }
 

@@ -19,7 +19,6 @@ if (id){
      .catch((err)=> console.log(err))
      .finally (()=>setLoading(true))
  } else {
-    console.log(getItems());
     getItems()
     .then((resp) => setitemList(resp))
     .catch((err)=> console.log(err))
@@ -28,8 +27,6 @@ if (id){
 },[id])
 
     return (
- 
-
         <>
         { !loading ?
 <RaceBy

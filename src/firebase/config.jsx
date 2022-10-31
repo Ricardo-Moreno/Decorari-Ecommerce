@@ -27,10 +27,8 @@ return dataDocs;
 }
 
 export async function getSingleItem(idParams){
-  console.log(idParams)
   const docRef = doc(firestore, 'items', idParams)
   const docSnapshot = await getDoc(docRef);
-console.log(idParams)
   return {...docSnapshot.data(), id: docSnapshot.id}
 
 }

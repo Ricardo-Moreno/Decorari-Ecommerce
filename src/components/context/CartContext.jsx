@@ -22,7 +22,6 @@ const addItem = (item, count) => {
         count
     }
 
-    console.log(newItem)
 
     if(isIntCart(newItem.id)){
         const findProduct = cart.find(x => x.id === newItem.id)

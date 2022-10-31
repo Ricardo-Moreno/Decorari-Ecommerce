@@ -9,8 +9,6 @@ function ItemDetailContainer() {
   const [loading, setLoading] = useState(false)
   const {detalleId} = useParams()
 
-console.log(detalleId)
-
     useEffect(()=>{
       getSingleItem(detalleId)
       .then((resp) => setitemLis(resp))
@@ -18,8 +16,6 @@ console.log(detalleId)
       .finally (()=>setLoading(true))
   }, [detalleId])
 
-
-  console.log(detalleId)
 
   return (
     <>
