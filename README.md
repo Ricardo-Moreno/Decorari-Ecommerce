@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Como utilizar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para clonar y ejecutar esta aplicación, necesitará Git y Node.js (que viene con npm) instalados en su computadora. Desde su línea de comando:
 
-## Available Scripts
+# Clonar este repositorio
 
-In the project directory, you can run:
+$ clon de git https://github.com/Ricardo-Moreno/Decorari-Ecommerce.git
 
-### `npm start`
+# Ir al repositorio
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+$ cd decorarimoreno
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Instalar dependencias
 
-### `npm test`
+$ npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Ejecutar la aplicación
 
-### `npm run build`
+$ npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Para vizualizar el proyecto pueden ingresar al siguiente link
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Acerca del Proyecto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Decorari App de React (Ecommerce)
 
-### `npm run eject`
+(Venta de Obsequios y Detalles)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Es una App estructurada a partir de las rubricas y consignas vistas durante el curso de React js en CoderHouse, Decorari es un proyecto que busca expandirse mediante una App de ventas (Ecommerce) y lograr una mayor exposición, Actualmente en la app solo se pueden desarrollar simples tareas como lo son, mostrar el producto mediante un catálogo formados por Cards, cada Card cuenta con un botón que dirigirá a los usuarios a una vista del producto mas detallada y con más especificaciones, allí se podrán agregar mediante un contador unidades al carrito. Desde el carrito se pueden ver los detalles de la compra y eliminar productos si ya no se desean comprar, si se desea proceder con la compra habrá que llenar un formulario el cual se enviará a una base de datos (FireBase) junto con el detalle de los productos seleccionados. Entre las cosas que se deben implementar esta como prioridad que estos datos lleguen a las personas encargadas de llevar a cabo la comunicación con el cliente para efectuar la venta. Tiempo estimado de finalización en 1 Mes a la fecha actual 31/10/2022.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Herramientas Utilizadas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+React
+Sass
+Bootstrap 5
+uiball loaders
+firebase
+react-icons
