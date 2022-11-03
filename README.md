@@ -1,3 +1,5 @@
+# DECORARI APP
+
 # Como utilizar
 
 Para clonar y ejecutar esta aplicación, necesitará Git y Node.js (que viene con npm) instalados en su computadora. Desde su línea de comando:
@@ -30,9 +32,9 @@ Es una App estructurada a partir de las rubricas y consignas vistas durante el c
 
 # Herramientas Utilizadas
 
-React
-Sass
-Bootstrap 5
-uiball loaders
-firebase
-react-icons
+- React
+- Sass
+- Bootstrap 5
+- uiball loaders
+- firebase
+- react-icons
