@@ -11,9 +11,11 @@ const [ inputType, setInputType ] = useState('1')
 const {addItem} = useContext(CartContext)
 
 const ButtonCount = ({handleInter}) => {
-        return <button
-        className='btn btn'
-        onClick={handleInter}> Agragar Al carrito</button>
+        return (
+          <button
+            className='btn btn'
+            onClick={handleInter}>Agregar Al carrito</button>
+        );
 }
 
 const handleInter = () => {
