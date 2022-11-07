@@ -18,7 +18,7 @@ function Checkout() {
       <h3 className="text-center fs-3">Compraste:</h3>
       {order.items?.map((item) => (
         <h4 className="text-center" key={item.id}>
-          {item.title} - Cantida {item.count}
+          {item.title} - Cantidad {item.count}
         </h4>
       ))}
     </div>

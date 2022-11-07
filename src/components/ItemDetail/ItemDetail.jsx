@@ -11,8 +11,7 @@ function ItemDetail({ data }) {
   const ButtonCount = ({ handleInter }) => {
     return (
       <button className="btn btn" onClick={handleInter}>
-        {" "}
-        Agragar Al carrito
+        Agregar Al carrito
       </button>
     );
   };
@@ -21,19 +20,9 @@ function ItemDetail({ data }) {
     setInputType("2");
   };
 
-<<<<<<< HEAD
   const pasar = (count) => {
     addItem(data, count);
   };
-=======
-const ButtonCount = ({handleInter}) => {
-        return (
-          <button
-            className='btn btn'
-            onClick={handleInter}>Agregar Al carrito</button>
-        );
-}
->>>>>>> c5d8b2a9d320a3596c76ec9ade5e792fc6378a72
 
   return (
     <>
