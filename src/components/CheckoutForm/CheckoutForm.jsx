@@ -40,13 +40,25 @@ function CheckoutForm() {
   return (
     <div className="form-container">
       <form onSubmit={handleCheckout}>
-        <FormInput value={dataForm.name} name="name" inputChangeHandler={inputChangeHandler}>
+        <FormInput
+          value={dataForm.name}
+          name="name"
+          inputChangeHandler={inputChangeHandler}
+        >
           Nombre
         </FormInput>
-        <FormInput value={dataForm.phone} name="phone" inputChangeHandler={inputChangeHandler}>
+        <FormInput
+          value={dataForm.phone}
+          name="phone"
+          inputChangeHandler={inputChangeHandler}
+        >
           Telefono
         </FormInput>
-        <FormInput value={dataForm.email} name="email" inputChangeHandler={inputChangeHandler}>
+        <FormInput
+          value={dataForm.email}
+          name="email"
+          inputChangeHandler={inputChangeHandler}
+        >
           Email
         </FormInput>
         <button className="cartview-button-finish" onClick={handleCheckout}>
