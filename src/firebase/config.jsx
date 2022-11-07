@@ -66,5 +66,7 @@ export async function generarTraerUnDocumento(id) {
   const documento = await getDoc(documentoRef);
   return { ...documento.data(), id: documento.id };
 }
+//la gracia de este "generarTraerUnDocumento", es el hacerlo escalable, por ejemplo, recibe la colección (el path) y con él te genera
+//la función como retorno para traer un documento de tal colección, si lo usas tanto para los items como para las órdenes, no te funcionará
 
 export default firestore;
