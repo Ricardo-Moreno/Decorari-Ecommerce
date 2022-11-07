@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { createBuyOrder } from "../../firebase/config";
+import FormInput from "../FormInput/FormInput";
 
 function CheckoutForm() {
   const [dataForm, setDataForm] = useState({
@@ -39,41 +40,15 @@ function CheckoutForm() {
   return (
     <div className="form-container">
       <form onSubmit={handleCheckout}>
-        <div className="form-item">
-          <label htmlFor="name">Nombre</label>
-          <input
-            value={dataForm.name}
-            onChange={inputChangeHandler}
-            name="name"
-            type="text"
-            placeholder="Nombre"
-            required
-          />
-        </div>
-
-        <div className="form-item">
-          <label htmlFor="phone">Telefono</label>
-          <input
-            value={dataForm.phone}
-            onChange={inputChangeHandler}
-            name="phone"
-            type="text"
-            placeholder="Telefono"
-            required
-          />
-        </div>
-
-        <div className="form-item">
-          <label htmlFor="name">Email</label>
-          <input
-            value={dataForm.email}
-            onChange={inputChangeHandler}
-            name="email"
-            type="text"
-            placeholder="Correo"
-            required
-          />
-        </div>
+        <FormInput value={dataForm.name} name="name" inputChangeHandler={inputChangeHandler}>
+          Nombre
+        </FormInput>
+        <FormInput value={dataForm.phone} name="phone" inputChangeHandler={inputChangeHandler}>
+          Telefono
+        </FormInput>
+        <FormInput value={dataForm.email} name="email" inputChangeHandler={inputChangeHandler}>
+          Email
+        </FormInput>
         <button className="cartview-button-finish" onClick={handleCheckout}>
           Finalizar Compra
         </button>
