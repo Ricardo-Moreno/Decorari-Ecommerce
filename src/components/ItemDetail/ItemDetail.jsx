@@ -1,54 +1,52 @@
-import { useContext, useState } from 'react';
-import { CartContext } from '../context/CartContext';
-import ItemCount from '../ItemCount/ItemCount';
-import './ItemDetail.css';
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
+import ItemCount from "../ItemCount/ItemCount";
+import "./ItemDetail.css";
 
+function ItemDetail({ data }) {
+  const [inputType, setInputType] = useState("1");
 
-function ItemDetail({data}) {
+  const { addItem } = useContext(CartContext);
 
-const [ inputType, setInputType ] = useState('1')
+  const ButtonCount = ({ handleInter }) => {
+    return (
+      <button className="btn btn" onClick={handleInter}>
+        {" "}
+        Agragar Al carrito
+      </button>
+    );
+  };
 
-const {addItem} = useContext(CartContext)
+  const handleInter = () => {
+    setInputType("2");
+  };
 
-const ButtonCount = ({handleInter}) => {
-        return <button
-        className='btn btn'
-        onClick={handleInter}> Agragar Al carrito</button>
-}
+  const pasar = (count) => {
+    addItem(data, count);
+  };
 
-const handleInter = () => {
-    setInputType('2')
-}
-
-const pasar = (count) => {
-    addItem(data, count)
-}
-
-
-
-return (
+  return (
     <>
-        <div className='detail-container'>
-            <div className='detail-img-container'>
-                <h2 className='detail-title'>{data.title}</h2>
-                <img className='detail-img' src={data.image} alt={data.title} />
-            </div>
-            <div className='detail-buy'>
-                    <h2 className='detail-price'>$ {data.price}</h2>
-                { inputType === '1' ?
-                <ButtonCount variant='primary' handleInter={handleInter}/>
-                :
-                <ItemCount
-                    initialCount={data.initial}
-                    stockCount={data.stock}
-                    detalleId={data.id}
-                    onAdd={pasar}
-                        />
-                }
-            </div>
+      <div className="detail-container">
+        <div className="detail-img-container">
+          <h2 className="detail-title">{data.title}</h2>
+          <img className="detail-img" src={data.image} alt={data.title} />
         </div>
+        <div className="detail-buy">
+          <h2 className="detail-price">$ {data.price}</h2>
+          {inputType === "1" ? (
+            <ButtonCount variant="primary" handleInter={handleInter} />
+          ) : (
+            <ItemCount
+              initialCount={data.initial}
+              stockCount={data.stock}
+              detalleId={data.id}
+              onAdd={pasar}
+            />
+          )}
+        </div>
+      </div>
     </>
-    )
+  );
 }
 export default ItemDetail;
-

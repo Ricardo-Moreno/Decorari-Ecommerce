@@ -1,10 +1,12 @@
 .App {
-    background: rgb(249,198,183);
-background: linear-gradient(180deg, rgba(249,198,183,1) 0%, rgba(252,222,199,1) 57%, rgba(247,233,226,1) 100%);
+  background: rgb(249, 198, 183);
+  background: linear-gradient(
+    180deg,
+    rgba(249, 198, 183, 1) 0%,
+    rgba(252, 222, 199, 1) 57%,
+    rgba(247, 233, 226, 1) 100%
+  );
 }
 
-
-
-
-@import  "~bootstrap/scss/bootstrap" ;
+@import "~bootstrap/scss/bootstrap";
 @import "./custom.scss";

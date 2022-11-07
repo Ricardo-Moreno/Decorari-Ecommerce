@@ -1,10 +1,8 @@
-$danger: #F9C6B7;
-$primary: #FCDEC7;
-$warning: #CE863E;
-$info: #1D1D1B;
-$success: #F7E9E2;
-
-
+$danger: #f9c6b7;
+$primary: #fcdec7;
+$warning: #ce863e;
+$info: #1d1d1b;
+$success: #f7e9e2;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap/scss/functions";
@@ -17,5 +15,3 @@ $success: #F7E9E2;
 @import "../node_modules/bootstrap/scss/images";
 
 @import "../node_modules/bootstrap/scss/grid";
-
-
