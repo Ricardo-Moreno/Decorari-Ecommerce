@@ -61,7 +61,7 @@ function CheckoutForm() {
         >
           Email
         </FormInput>
-        <button className="cartview-button-finish" onClick={handleCheckout}>
+        <button className="cartview-button-finish" disabled={ !dataForm.name || !dataForm.phone || !dataForm.email} onClick={handleCheckout}>
           Finalizar Compra
         </button>
       </form>
