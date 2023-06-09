@@ -8,8 +8,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
-import app from "../conf/fireBase";
-// import app from "./claves";
+import app from "./FireBase";
 
 const firestore = getFirestore(app);
 
